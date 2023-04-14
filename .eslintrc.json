@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["react-app", "prettier"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "linebreak-style": [0, "windows"],
+    "quotes": ["error", "double"]
+  }
+}
