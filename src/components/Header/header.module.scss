@@ -1,0 +1,15 @@
+@import "/src/scss";
+
+.header {
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    @extend %container;
+    display: grid;
+    grid-template-columns: max-content 1fr repeat(2, max-content);
+  }
+}
