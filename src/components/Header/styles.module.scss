@@ -1,0 +1,32 @@
+@import "/src/scss";
+
+.header {
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    @extend %container;
+    display: flex;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  .image {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-left: 5px;
+  }
+}
