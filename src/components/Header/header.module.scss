@@ -2,7 +2,7 @@
 
 .header {
   height: 60px;
-  background-color: #ffffff;
+  background-color: $primary-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,7 @@
   .container {
     @extend %container;
     display: flex;
+    align-items: center;
   }
 }
 
@@ -18,7 +19,7 @@
   align-items: center;
   flex-grow: 1;
 
-  .image {
+  .logoImage {
     width: 2.5rem;
     height: 2.5rem;
   }

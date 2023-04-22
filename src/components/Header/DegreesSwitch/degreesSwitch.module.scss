@@ -1,0 +1,31 @@
+@import "/src/scss";
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button {
+  padding: 2px 7px 2px 3px;
+  border: 2px solid $secondary-color;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: -0.05rem;
+  background-color: $secondary-color;
+  color: rgba(black, 0.4);
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+    border-left: 0;
+  }
+
+  &Active {
+    background-color: $primary-color;
+    color: black;
+  }
+}

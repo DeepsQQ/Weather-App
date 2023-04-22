@@ -1,4 +1,8 @@
-import styles from "./styles.module.scss";
+import React from "react";
+
+import styles from "./header.module.scss";
+
+import DegreesSwitch from "./DegreesSwitch";
 
 const Header = () => {
   return (
@@ -6,7 +10,7 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <svg
-            className={styles.image}
+            className={styles.logoImage}
             xmlns="http://www.w3.org/2000/svg"
             width="314"
             height="235"
@@ -32,6 +36,7 @@ const Header = () => {
           </svg>
           <span className={styles.title}>Weather</span>
         </div>
+        <DegreesSwitch />
       </div>
     </header>
   );
