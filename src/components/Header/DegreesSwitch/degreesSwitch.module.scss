@@ -12,7 +12,7 @@
   font-size: 1.3rem;
   letter-spacing: -0.05rem;
   background-color: $secondary-color;
-  color: rgba(black, 0.4);
+  color: rgba(black, 0.35);
 
   &:first-child {
     border-radius: 5px 0 0 5px;
@@ -27,5 +27,9 @@
   &Active {
     background-color: $primary-color;
     color: black;
+  }
+
+  &:not(&Active):hover {
+    background-color: $dark-secondary-color;
   }
 }
