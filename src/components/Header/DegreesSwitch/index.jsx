@@ -1,16 +1,23 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
 import styles from "./degreesSwitch.module.scss";
+import { setDegreesMode } from "../../../store/degreesModeSlice";
 
 const DegreesSwitch = () => {
-  const [degrees, setDegrees] = React.useState("C");
+  const dispatch = useDispatch();
+  const degreesMode = useSelector((state) => state.degreesMode.mode);
 
-  const buttonClick = (arg) => setDegrees(arg === "C" ? "C" : "F");
+  const buttonClick = (mode) => {
+    if (degreesMode !== mode) dispatch(setDegreesMode({ mode }));
+  };
 
   return (
     <div className={styles.root}>
       <button
         className={`${styles.button} ${
-          degrees === "C" ? styles.buttonActive : ""
+          degreesMode === "C" ? styles.buttonActive : ""
         }`}
         onClick={() => buttonClick("C")}
       >
@@ -18,7 +25,7 @@ const DegreesSwitch = () => {
       </button>
       <button
         className={`${styles.button} ${
-          degrees === "F" ? styles.buttonActive : ""
+          degreesMode === "F" ? styles.buttonActive : ""
         }`}
         onClick={() => buttonClick("F")}
       >
