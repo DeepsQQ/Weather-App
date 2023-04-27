@@ -4,10 +4,17 @@ import styles from "./LocationInput.module.scss";
 
 const LocationSearch = () => {
   const [searchValue, setSearchValue] = React.useState("");
+  const inputRef = React.useRef();
+
+  const clickClear = () => {
+    setSearchValue("");
+    inputRef.current.focus();
+  };
 
   return (
     <div className={styles.root}>
       <input
+        ref={inputRef}
         type="text"
         placeholder="City"
         value={searchValue}
@@ -15,10 +22,7 @@ const LocationSearch = () => {
         className={styles.input}
       />
       {searchValue ? (
-        <button
-          onClick={() => setSearchValue("")}
-          className={styles.clearIconButton}
-        >
+        <button onClick={clickClear} className={styles.clearIconButton}>
           <svg
             className={styles.clearIcon}
             xmlns="http://www.w3.org/2000/svg"
