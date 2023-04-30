@@ -1,13 +1,43 @@
 import React from "react";
+import debounce from "lodash.debounce";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import styles from "./LocationInput.module.scss";
+import { fetchResults, setResults } from "../../../store/autoCompleteSlice";
+
+const PopupRow = ({ city, region, country }) => {
+  return (
+    <div className={styles.popupRow}>{`${city}, ${region}, ${country}`}</div>
+  );
+};
 
 const LocationSearch = () => {
-  const [searchValue, setSearchValue] = React.useState("");
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = React.useState("");
+  const searchResults = useSelector((state) => state.autoComplete.results);
   const inputRef = React.useRef();
 
-  const clickClear = () => {
-    setSearchValue("");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const searchDebounce = React.useCallback(
+    debounce(async (value) => {
+      if (!/\d/.test(value) && value.trim() && value.length >= 3) {
+        dispatch(fetchResults(value));
+      } else {
+        dispatch(setResults([]));
+      }
+    }, 300),
+    []
+  );
+
+  const onChangeInput = (e) => {
+    setInputValue(e.target.value);
+    searchDebounce(e.target.value);
+  };
+
+  const onClickClear = () => {
+    setInputValue("");
+    dispatch(setResults([]));
     inputRef.current.focus();
   };
 
@@ -17,12 +47,13 @@ const LocationSearch = () => {
         ref={inputRef}
         type="text"
         placeholder="City"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        value={inputValue}
+        onChange={onChangeInput}
         className={styles.input}
       />
-      {searchValue ? (
-        <button onClick={clickClear} className={styles.clearIconButton}>
+
+      {inputValue ? (
+        <button onClick={onClickClear} className={styles.clearIconButton}>
           <svg
             className={styles.clearIcon}
             xmlns="http://www.w3.org/2000/svg"
@@ -34,8 +65,8 @@ const LocationSearch = () => {
             <path
               d="M20 20L4 4.00003M20 4L4.00002 20"
               stroke="#000000"
-              stroke-width="3"
-              stroke-linecap="round"
+              strokeWidth="3"
+              strokeLinecap="round"
             />
           </svg>
         </button>
@@ -68,8 +99,20 @@ const LocationSearch = () => {
           </defs>
         </svg>
       )}
+
+      {searchResults.length > 0 && (
+        <div className={styles.popup}>
+          {searchResults.map((location) => (
+            <PopupRow
+              key={location.id}
+              city={location.name}
+              region={location.region}
+              country={location.country}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
-
 export default LocationSearch;

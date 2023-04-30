@@ -7,7 +7,7 @@ const degreesModeSlice = createSlice({
   },
   reducers: {
     setDegreesMode(state, action) {
-      state.mode = action.payload.mode;
+      state.mode = action.payload;
     },
   },
 });

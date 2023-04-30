@@ -10,7 +10,7 @@ const DegreesSwitch = () => {
   const degreesMode = useSelector((state) => state.degreesMode.mode);
 
   const buttonClick = (mode) => {
-    if (degreesMode !== mode) dispatch(setDegreesMode({ mode }));
+    if (degreesMode !== mode) dispatch(setDegreesMode(mode));
   };
 
   return (
