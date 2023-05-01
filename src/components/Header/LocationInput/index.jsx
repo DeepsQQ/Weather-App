@@ -7,8 +7,13 @@ import styles from "./LocationInput.module.scss";
 import { fetchResults, setResults } from "../../../store/autoCompleteSlice";
 
 const PopupRow = ({ city, region, country }) => {
+  const location = region ? region + ", " + country : country;
+
   return (
-    <div className={styles.popupRow}>{`${city}, ${region}, ${country}`}</div>
+    <div className={styles.popupRow}>
+      <div className={styles.popupCity}>{city}</div>
+      <div className={styles.popupRegion}>{location}</div>
+    </div>
   );
 };
 
@@ -46,7 +51,7 @@ const LocationSearch = () => {
       <input
         ref={inputRef}
         type="text"
-        placeholder="City"
+        placeholder="Search city"
         value={inputValue}
         onChange={onChangeInput}
         className={styles.input}
