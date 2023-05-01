@@ -13,7 +13,6 @@ export const fetchResults = createAsyncThunk(
         },
       }
     );
-    console.log(response.data);
 
     response.data = response.data.filter((filter, index, self) => {
       const isDuplicate =
