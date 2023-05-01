@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./header.module.scss";
 
 import DegreesSwitch from "./DegreesSwitch";
-import LocationInput from "./LocationInput";
+import LocationSearch from "./LocationSearch";
 
 const Header = () => {
   return (
@@ -38,7 +38,7 @@ const Header = () => {
           <span className={styles.title}>Weather</span>
         </div>
         <DegreesSwitch />
-        <LocationInput />
+        <LocationSearch />
       </div>
     </header>
   );

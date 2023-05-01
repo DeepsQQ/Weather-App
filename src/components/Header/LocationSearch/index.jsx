@@ -3,19 +3,20 @@ import debounce from "lodash.debounce";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import styles from "./LocationInput.module.scss";
+import styles from "./LocationSearch.module.scss";
 import { fetchResults, setResults } from "../../../store/autoCompleteSlice";
+import AutoCompletePopup from "../AutoCompletePopup";
 
-const PopupRow = ({ city, region, country }) => {
-  const location = region ? region + ", " + country : country;
+// const PopupRow = ({ city, region, country }) => {
+//   const location = region ? region + ", " + country : country;
 
-  return (
-    <div className={styles.popupRow}>
-      <div className={styles.popupCity}>{city}</div>
-      <div className={styles.popupRegion}>{location}</div>
-    </div>
-  );
-};
+//   return (
+//     <div className={styles.popupRow}>
+//       <div className={styles.popupCity}>{city}</div>
+//       <div className={styles.popupRegion}>{location}</div>
+//     </div>
+//   );
+// };
 
 const LocationSearch = () => {
   const dispatch = useDispatch();
@@ -106,16 +107,17 @@ const LocationSearch = () => {
       )}
 
       {searchResults.length > 0 && (
-        <div className={styles.popup}>
-          {searchResults.map((location) => (
-            <PopupRow
-              key={location.id}
-              city={location.name}
-              region={location.region}
-              country={location.country}
-            />
-          ))}
-        </div>
+        <AutoCompletePopup searchResults={searchResults} />
+        // <div className={styles.popup}>
+        //   {searchResults.map((location) => (
+        //     <PopupRow
+        //       key={location.id}
+        //       city={location.name}
+        //       region={location.region}
+        //       country={location.country}
+        //     />
+        //   ))}
+        // </div>
       )}
     </div>
   );

@@ -61,37 +61,3 @@
     opacity: 1;
   }
 }
-
-.popup {
-  position: absolute;
-  left: 0;
-  top: calc(100% + 5px);
-  width: 100%;
-  box-sizing: border-box;
-  background-color: $secondary-color;
-  border-radius: 5px;
-  z-index: 99;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.popupRow {
-  padding: 6px 9px;
-  font-family: "Roboto", sans-serif;
-
-  &:hover {
-    background-color: $dark-secondary-color;
-  }
-}
-
-.popupCity {
-  font-size: 1rem;
-}
-
-.popupRegion {
-  margin-top: 3px;
-  font-size: 1rem;
-  color: rgba(black, 0.5);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
