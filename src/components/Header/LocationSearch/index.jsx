@@ -7,17 +7,6 @@ import styles from "./LocationSearch.module.scss";
 import { fetchResults, setResults } from "../../../store/autoCompleteSlice";
 import AutoCompletePopup from "../AutoCompletePopup";
 
-// const PopupRow = ({ city, region, country }) => {
-//   const location = region ? region + ", " + country : country;
-
-//   return (
-//     <div className={styles.popupRow}>
-//       <div className={styles.popupCity}>{city}</div>
-//       <div className={styles.popupRegion}>{location}</div>
-//     </div>
-//   );
-// };
-
 const LocationSearch = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = React.useState("");
@@ -108,16 +97,6 @@ const LocationSearch = () => {
 
       {searchResults.length > 0 && (
         <AutoCompletePopup searchResults={searchResults} />
-        // <div className={styles.popup}>
-        //   {searchResults.map((location) => (
-        //     <PopupRow
-        //       key={location.id}
-        //       city={location.name}
-        //       region={location.region}
-        //       country={location.country}
-        //     />
-        //   ))}
-        // </div>
       )}
     </div>
   );
