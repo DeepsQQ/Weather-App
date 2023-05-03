@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const degreesModeSlice = createSlice({
   name: "degreesMode",
+
   initialState: {
     mode: "C",
   },
+
   reducers: {
     setDegreesMode(state, action) {
       state.mode = action.payload;

@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchResults = createAsyncThunk(
   "autoComplete/fetchResults",
-  async (value, { rejectWithValue }) => {
+  async (value) => {
     const response = await axios.get(
       "http://api.weatherapi.com/v1/search.json",
       {
@@ -30,15 +30,18 @@ export const fetchResults = createAsyncThunk(
 
 const autoCompleteSlice = createSlice({
   name: "autoComplete",
+
   initialState: {
     results: [],
     error: null,
   },
+
   reducers: {
     setResults: (state, action) => {
       state.results = action.payload;
     },
   },
+
   extraReducers: {
     [fetchResults.fulfilled]: (state, action) => {
       state.results = action.payload;
