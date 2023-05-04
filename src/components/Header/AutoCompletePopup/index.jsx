@@ -1,13 +1,15 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 
 import styles from "./AutoCompletePopup.module.scss";
 import { fetchWeather } from "../../../store/weatherDataSlice";
 
-const AutoCompletePopup = ({ searchResults }) => {
+const AutoCompletePopup = ({ searchResults, setPopupVisible }) => {
   const dispatch = useDispatch();
 
   const onRowClick = (latitude, longitude) => {
     dispatch(fetchWeather(`${latitude},${longitude}`));
+    setPopupVisible(false);
   };
 
   return (

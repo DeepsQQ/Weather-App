@@ -9,9 +9,30 @@ import AutoCompletePopup from "../AutoCompletePopup";
 
 const LocationSearch = () => {
   const dispatch = useDispatch();
+
   const [inputValue, setInputValue] = React.useState("");
+  const [popupVisible, setPopupVisible] = React.useState(false);
+
   const searchResults = useSelector((state) => state.autoComplete.results);
+
   const inputRef = React.useRef();
+  const rootRef = React.useRef();
+
+  const onClickOutsidePopup = (event) => {
+    const isRootIncludes = event.composedPath().includes(rootRef.current);
+
+    if (!isRootIncludes) {
+      setPopupVisible(false);
+    }
+  };
+
+  React.useEffect(() => {
+    if (popupVisible) {
+      document.addEventListener("click", onClickOutsidePopup);
+    } else {
+      document.removeEventListener("click", onClickOutsidePopup);
+    }
+  }, [popupVisible]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const searchDebounce = React.useCallback(
@@ -37,14 +58,15 @@ const LocationSearch = () => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} ref={rootRef}>
       <input
+        className={styles.input}
         ref={inputRef}
         type="text"
         placeholder="Search city"
         value={inputValue}
         onChange={onChangeInput}
-        className={styles.input}
+        onFocus={() => setPopupVisible(true)}
       />
 
       {inputValue ? (
@@ -95,8 +117,11 @@ const LocationSearch = () => {
         </svg>
       )}
 
-      {searchResults.length > 0 && (
-        <AutoCompletePopup searchResults={searchResults} />
+      {searchResults.length > 0 && popupVisible && (
+        <AutoCompletePopup
+          searchResults={searchResults}
+          setPopupVisible={setPopupVisible}
+        />
       )}
     </div>
   );
