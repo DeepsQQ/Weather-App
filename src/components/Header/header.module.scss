@@ -1,11 +1,11 @@
 @import "/src/scss";
 
 .header {
-  height: 60px;
-  background-color: $primary-color;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60px;
+  background-color: $primary-color;
 
   .container {
     @extend %container;

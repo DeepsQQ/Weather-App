@@ -8,6 +8,6 @@ export default configureStore({
   reducer: {
     degreesMode: degreesModeReducer,
     autoComplete: autoCompleteReducer,
-    weattherData: weatherDataReducer,
+    weatherData: weatherDataReducer,
   },
 });

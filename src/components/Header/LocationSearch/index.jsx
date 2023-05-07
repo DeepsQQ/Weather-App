@@ -3,7 +3,7 @@ import debounce from "lodash.debounce";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
-import styles from "./LocationSearch.module.scss";
+import styles from "./locationSearch.module.scss";
 import { fetchResults, setResults } from "../../../store/autoCompleteSlice";
 import AutoCompletePopup from "../AutoCompletePopup";
 
