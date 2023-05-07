@@ -8,7 +8,7 @@ export const fetchWeather = createAsyncThunk(
       "http://api.weatherapi.com/v1/forecast.json",
       {
         params: {
-          key: process.env.REACT_APP_API_KEY,
+          key: process.env.REACT_APP_WEATHER_API_KEY,
           q: value,
           days: 3,
           aqi: "no",
@@ -19,6 +19,34 @@ export const fetchWeather = createAsyncThunk(
     );
 
     return response.data;
+  }
+);
+
+export const fetchWeatherByGeolocation = createAsyncThunk(
+  "weatherData/fetchWeatherByGeolocation",
+  async () => {
+    const locationRes = await axios.get("https://api.ipdata.co", {
+      params: {
+        "api-key": process.env.REACT_APP_IP_API_KEY,
+      },
+    });
+    const position = `${locationRes.data.latitude},${locationRes.data.longitude}`;
+
+    const weatherRes = await axios.get(
+      "http://api.weatherapi.com/v1/forecast.json",
+      {
+        params: {
+          key: process.env.REACT_APP_WEATHER_API_KEY,
+          q: position,
+          days: 3,
+          aqi: "no",
+          alerts: "no",
+          lang: "en",
+        },
+      }
+    );
+
+    return weatherRes.data;
   }
 );
 
@@ -40,6 +68,16 @@ const autoCompleteSlice = createSlice({
       state.error = null;
     },
     [fetchWeather.rejected]: (state, action) => {
+      state.error = action.error;
+    },
+
+    [fetchWeatherByGeolocation.fulfilled]: (state, action) => {
+      state.location = action.payload.location;
+      state.currentWeather = action.payload.current;
+      state.forecast = action.payload.forecast.forecastday;
+      state.error = null;
+    },
+    [fetchWeatherByGeolocation.rejected]: (state, action) => {
       state.error = action.error;
     },
   },

@@ -8,7 +8,7 @@ export const fetchResults = createAsyncThunk(
       "http://api.weatherapi.com/v1/search.json",
       {
         params: {
-          key: process.env.REACT_APP_API_KEY,
+          key: process.env.REACT_APP_WEATHER_API_KEY,
           q: value.trim(),
         },
       }
