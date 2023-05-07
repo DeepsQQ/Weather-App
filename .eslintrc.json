@@ -12,6 +12,7 @@
   },
   "rules": {
     "linebreak-style": [0, "windows"],
+    "react-hooks/exhaustive-deps": "off",
     "quotes": ["error", "double"]
   }
 }
