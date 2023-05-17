@@ -5,7 +5,7 @@ export const fetchResults = createAsyncThunk(
   "autoComplete/fetchResults",
   async (value) => {
     const response = await axios.get(
-      "http://api.weatherapi.com/v1/search.json",
+      "https://api.weatherapi.com/v1/search.json",
       {
         params: {
           key: process.env.REACT_APP_WEATHER_API_KEY,

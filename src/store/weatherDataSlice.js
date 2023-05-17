@@ -5,7 +5,7 @@ export const fetchWeather = createAsyncThunk(
   "weatherData/fetchWeather",
   async (value) => {
     const response = await axios.get(
-      "http://api.weatherapi.com/v1/forecast.json",
+      "https://api.weatherapi.com/v1/forecast.json",
       {
         params: {
           key: process.env.REACT_APP_WEATHER_API_KEY,
@@ -33,7 +33,7 @@ export const fetchWeatherByGeolocation = createAsyncThunk(
     const position = `${locationRes.data.latitude},${locationRes.data.longitude}`;
 
     const weatherRes = await axios.get(
-      "http://api.weatherapi.com/v1/forecast.json",
+      "https://api.weatherapi.com/v1/forecast.json",
       {
         params: {
           key: process.env.REACT_APP_WEATHER_API_KEY,
