@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import styles from "./AutoCompletePopup.module.scss";
+import styles from "./autoCompletePopup.module.scss";
 import { fetchWeather } from "../../../store/weatherDataSlice";
 
 const AutoCompletePopup = ({ searchResults, setPopupVisible }) => {
