@@ -1,4 +1,12 @@
 $primary-color: #ffffff;
+$dark-primary-color: #f2f2f2;
 
 $secondary-color: #eceef2;
 $dark-secondary-color: #d8dde6;
+
+:export {
+  primaryColor: $primary-color;
+  darkPrimaryColor: $dark-primary-color;
+  secondaryColor: $secondary-color;
+  darkSecondaryColor: $dark-secondary-color;
+}
