@@ -5,9 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./currentWeather.module.scss";
 
+import { fetchWeatherByGeolocation } from "../../store/weatherDataSlice";
+
 import dayBackground from "./DayBackground.jpg";
 import nightBackground from "./NightBackground.jpg";
-import { fetchWeatherByGeolocation } from "../../store/weatherDataSlice";
+
+import PrimaryWindow from "./PrimaryWindow";
 
 const CurrentWeather = () => {
   const dispatch = useDispatch();
@@ -30,7 +33,7 @@ const CurrentWeather = () => {
     <main className={styles.root} style={{ backgroundImage: backgroundPath }}>
       <div className={styles.container}>
         {weatherData ? (
-          true
+          <PrimaryWindow />
         ) : (
           <>
             <Skeleton height={"13.75rem"} />
