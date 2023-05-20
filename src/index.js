@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 
 import "@fontsource/roboto";
 import "reset-css";
+import "./index.scss";
 
 import store from "./store";
 import App from "./App.jsx";
