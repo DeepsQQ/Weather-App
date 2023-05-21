@@ -1,0 +1,28 @@
+.temperature {
+  display: flex;
+  align-items: center;
+}
+
+.degrees {
+  font-size: 4.5rem;
+  line-height: 80%;
+}
+
+.degreesMode {
+  font-size: 1.2rem;
+  align-self: flex-start;
+}
+
+.weatherIcon {
+  width: 4rem;
+  height: 4rem;
+  margin-left: 5px;
+}
+
+.feelsLike {
+  margin-top: 10px;
+}
+
+.weatherText {
+  margin-top: 5px;
+}
