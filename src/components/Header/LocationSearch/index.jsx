@@ -18,7 +18,7 @@ const LocationSearch = () => {
   const inputRef = React.useRef();
   const rootRef = React.useRef();
 
-  const onClickOutsidePopup = (event) => {
+  const onMouseDownOutsidePopup = (event) => {
     const isRootIncludes = event.composedPath().includes(rootRef.current);
 
     if (!isRootIncludes) {
@@ -28,9 +28,9 @@ const LocationSearch = () => {
 
   React.useEffect(() => {
     if (popupVisible) {
-      document.addEventListener("click", onClickOutsidePopup);
+      document.addEventListener("mousedown", onMouseDownOutsidePopup);
     } else {
-      document.removeEventListener("click", onClickOutsidePopup);
+      document.removeEventListener("mousedown", onMouseDownOutsidePopup);
     }
   }, [popupVisible]);
 
