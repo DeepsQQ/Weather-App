@@ -1,0 +1,47 @@
+.root {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-content: center;
+}
+
+.sunIcon {
+  display: block;
+}
+
+.sunTime {
+  margin-top: 5px;
+}
+
+.daylightHours {
+  justify-self: center;
+  align-self: end;
+}
+
+.progress {
+  display: grid;
+  grid-template-rows: 1fr max-content calc(1rem + 5px);
+  margin: 0 5px;
+}
+
+.progressBar {
+  position: relative;
+  margin-top: 10px;
+  border-bottom: 2px dashed rgba(#ffffff, 0.8);
+}
+
+.progressValue {
+  position: absolute;
+  width: 50%;
+  border-bottom: 2px solid #ffce47;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ffce47;
+    border-radius: 50%;
+    right: 0;
+    transform: translate(50%, calc(-50% + 1px));
+  }
+}

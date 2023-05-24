@@ -11,6 +11,7 @@ import dayBackground from "./DayBackground.jpg";
 import nightBackground from "./NightBackground.jpg";
 
 import PrimaryWindow from "./PrimaryWindow";
+import SecondaryWindow from "./SecondaryWindow";
 
 const CurrentWeather = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,10 @@ const CurrentWeather = () => {
     <main className={styles.root} style={{ backgroundImage: backgroundPath }}>
       <div className={styles.container}>
         {weatherData ? (
-          <PrimaryWindow />
+          <>
+            <PrimaryWindow />
+            <SecondaryWindow />
+          </>
         ) : (
           <>
             <Skeleton height={"13.75rem"} />
