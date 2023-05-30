@@ -13,21 +13,21 @@ const AMAndPMTo24hours = (time) => {
 };
 
 const getDifferenceBetweenTime = (firstDate, secondDate) => {
-  let getDate = (string) =>
+  const getDate = (string) =>
     new Date(0, 0, 0, string.split(":")[0], string.split(":")[1]);
-  let different = getDate(secondDate) - getDate(firstDate);
-  let differentRes, hours, minuts;
+  const different = getDate(secondDate) - getDate(firstDate);
+  let differentRes, hours, minutes;
   if (different > 0) {
     differentRes = different;
     hours = Math.floor((differentRes % 86400000) / 3600000);
-    minuts = Math.round(((differentRes % 86400000) % 3600000) / 60000);
+    minutes = Math.round(((differentRes % 86400000) % 3600000) / 60000);
   } else {
     differentRes = Math.abs(getDate(firstDate) - getDate(secondDate));
     hours = Math.floor(24 - (differentRes % 86400000) / 3600000);
-    minuts = Math.round(60 - ((differentRes % 86400000) % 3600000) / 60000);
+    minutes = Math.round(60 - ((differentRes % 86400000) % 3600000) / 60000);
   }
 
-  return hours + ":" + minuts;
+  return [hours, minutes];
 };
 
 function DayProgress() {
@@ -38,7 +38,11 @@ function DayProgress() {
   const sunrise24hours = AMAndPMTo24hours(sunrise);
   const sunset24hours = AMAndPMTo24hours(sunset);
 
-  const dayLightTime = getDifferenceBetweenTime(sunrise24hours, sunset24hours);
+  const [daylightHours, daylightMinutes] = getDifferenceBetweenTime(
+    sunrise24hours,
+    sunset24hours
+  );
+  const daylightTime = `${daylightHours}h ${daylightMinutes}m`;
 
   return (
     <div className={styles.root}>
@@ -104,7 +108,7 @@ function DayProgress() {
       </div>
       <div className={styles.progress}>
         <div className={styles.daylightHours}>
-          Daylight hours: {dayLightTime}
+          Daylight hours: {daylightTime}
         </div>
         <div className={styles.progressBar}>
           <div className={styles.progressValue}></div>
