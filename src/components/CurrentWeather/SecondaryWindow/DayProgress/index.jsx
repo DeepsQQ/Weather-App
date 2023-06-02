@@ -12,17 +12,17 @@ const AMAndPMTo24hours = (time) => {
   return time24hours.split(/\s/)[0];
 };
 
-const getDifferenceBetweenTime = (firstDate, secondDate) => {
+const getDifferenceBetweenTime = (firstTime, secondTime) => {
   const getDate = (string) =>
     new Date(0, 0, 0, string.split(":")[0], string.split(":")[1]);
-  const different = getDate(secondDate) - getDate(firstDate);
+  const different = getDate(secondTime) - getDate(firstTime);
   let differentRes, hours, minutes;
   if (different > 0) {
     differentRes = different;
     hours = Math.floor((differentRes % 86400000) / 3600000);
     minutes = Math.round(((differentRes % 86400000) % 3600000) / 60000);
   } else {
-    differentRes = Math.abs(getDate(firstDate) - getDate(secondDate));
+    differentRes = Math.abs(getDate(firstTime) - getDate(secondTime));
     hours = Math.floor(24 - (differentRes % 86400000) / 3600000);
     minutes = Math.round(60 - ((differentRes % 86400000) % 3600000) / 60000);
   }
@@ -30,10 +30,25 @@ const getDifferenceBetweenTime = (firstDate, secondDate) => {
   return [hours, minutes];
 };
 
+const getDaylghtProgress = (parentTime, relativeTime) => {
+  const [parentHours, parentMinutes] = parentTime;
+  const [relativeHours, relativeMinutes] = relativeTime;
+
+  const parentSeconds = parentHours * 60 + parentMinutes;
+  const relativeSeconds = relativeHours * 60 + relativeMinutes;
+
+  const result = Math.trunc((relativeSeconds / parentSeconds) * 100);
+
+  if (result <= 0 || result >= 100) return 0;
+
+  return result + "%";
+};
+
 function DayProgress() {
   const { sunrise, sunset } = useSelector(
     (state) => state.weatherData.forecast[0].astro
   );
+  const { localtime } = useSelector((state) => state.weatherData.location);
 
   const sunrise24hours = AMAndPMTo24hours(sunrise);
   const sunset24hours = AMAndPMTo24hours(sunset);
@@ -42,6 +57,15 @@ function DayProgress() {
     sunrise24hours,
     sunset24hours
   );
+
+  const currentTime = localtime.split(" ")[1];
+  const pastTime = getDifferenceBetweenTime(sunrise24hours, currentTime);
+
+  const progressValue = getDaylghtProgress(
+    [daylightHours, daylightMinutes],
+    pastTime
+  );
+
   const daylightTime = `${daylightHours}h ${daylightMinutes}m`;
 
   return (
@@ -111,7 +135,10 @@ function DayProgress() {
           Daylight hours: {daylightTime}
         </div>
         <div className={styles.progressBar}>
-          <div className={styles.progressValue}></div>
+          <div
+            className={styles.progressValue}
+            style={{ width: progressValue }}
+          ></div>
         </div>
       </div>
       <div>
