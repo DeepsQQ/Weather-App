@@ -31,21 +31,24 @@ const CurrentWeather = () => {
   }
 
   return (
-    <main className={styles.root} style={{ backgroundImage: backgroundPath }}>
-      <div className={styles.container}>
-        {weatherData ? (
-          <>
-            <PrimaryWindow />
-            <SecondaryWindow />
-          </>
-        ) : (
-          <>
-            <Skeleton height={"13.75rem"} />
-            <Skeleton height={"13.75rem"} />
-          </>
-        )}
-      </div>
-    </main>
+    <>
+      <main className={styles.root} style={{ backgroundImage: backgroundPath }}>
+        <div className={styles.container}>
+          {weatherData ? (
+            <>
+              <PrimaryWindow />
+              <SecondaryWindow />
+            </>
+          ) : (
+            <>
+              <Skeleton height={"13.75rem"} />
+              <Skeleton height={"13.75rem"} />
+            </>
+          )}
+        </div>
+      </main>
+      <div className={styles.separator}></div>
+    </>
   );
 };
 
