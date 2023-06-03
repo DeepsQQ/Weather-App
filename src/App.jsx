@@ -10,6 +10,8 @@ const App = () => {
       <SkeletonTheme
         baseColor={scssVariables.primaryColor}
         highlightColor={scssVariables.darkPrimaryColor}
+        borderRadius={10}
+        duration={1}
       >
         <Header />
         <CurrentWeather />

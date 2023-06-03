@@ -41,8 +41,8 @@ const CurrentWeather = () => {
             </>
           ) : (
             <>
-              <Skeleton height={"13.75rem"} />
-              <Skeleton height={"13.75rem"} />
+              <Skeleton height={"11rem"} />
+              <Skeleton height={"11rem"} />
             </>
           )}
         </div>
