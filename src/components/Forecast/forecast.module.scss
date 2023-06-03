@@ -1,0 +1,15 @@
+@import "/src/scss";
+
+.root {
+  display: flex;
+  justify-content: center;
+  background-color: $secondary-color;
+}
+
+.container {
+  @extend %container;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
