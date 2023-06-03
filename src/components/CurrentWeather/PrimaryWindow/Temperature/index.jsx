@@ -6,7 +6,7 @@ const icons = require.context("../../../../icons");
 
 const Temperature = () => {
   const { temp_c, temp_f, feelslike_c, feelslike_f, is_day, condition } =
-    useSelector((state) => state.weatherData.currentWeather);
+    useSelector((state) => state.weatherData.current);
   const degreesMode = useSelector((state) => state.degreesMode.mode);
 
   const iconPath = `./${is_day ? "day" : "night"}/${condition.code}.svg`;

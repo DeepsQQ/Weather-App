@@ -4,7 +4,7 @@ import styles from "./weatherDescription.module.scss";
 
 function WeatherDescription() {
   const { humidity, wind_kph, pressure_mb, cloud } = useSelector(
-    (state) => state.weatherData.currentWeather
+    (state) => state.weatherData.current
   );
 
   return (

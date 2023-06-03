@@ -55,7 +55,7 @@ const autoCompleteSlice = createSlice({
 
   initialState: {
     location: null,
-    currentWeather: null,
+    current: null,
     forecast: null,
     error: null,
   },
@@ -63,7 +63,7 @@ const autoCompleteSlice = createSlice({
   extraReducers: {
     [fetchWeather.fulfilled]: (state, action) => {
       state.location = action.payload.location;
-      state.currentWeather = action.payload.current;
+      state.current = action.payload.current;
       state.forecast = action.payload.forecast.forecastday;
       state.error = null;
     },
@@ -73,7 +73,7 @@ const autoCompleteSlice = createSlice({
 
     [fetchWeatherByGeolocation.fulfilled]: (state, action) => {
       state.location = action.payload.location;
-      state.currentWeather = action.payload.current;
+      state.current = action.payload.current;
       state.forecast = action.payload.forecast.forecastday;
       state.error = null;
     },

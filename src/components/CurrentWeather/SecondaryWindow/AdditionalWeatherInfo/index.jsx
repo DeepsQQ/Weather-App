@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import styles from "./additionalWeatherInfo.module.scss";
 
 const AdditionalWeatherInfo = () => {
-  const { vis_km, uv } = useSelector(
-    (state) => state.weatherData.currentWeather
-  );
+  const { vis_km, uv } = useSelector((state) => state.weatherData.current);
   const { moon_phase, moon_illumination } = useSelector(
     (state) => state.weatherData.forecast[0].astro
   );

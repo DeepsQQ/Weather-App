@@ -20,7 +20,7 @@ const CurrentWeather = () => {
     dispatch(fetchWeatherByGeolocation());
   }, []);
 
-  const weatherData = useSelector((state) => state.weatherData.currentWeather);
+  const weatherData = useSelector((state) => state.weatherData.current);
 
   let backgroundPath = "";
 
