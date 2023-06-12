@@ -13,3 +13,9 @@
   grid-template-columns: 1fr;
   gap: 15px;
 }
+
+.skeleton {
+  display: grid;
+  grid-template-columns: 10fr 3fr;
+  gap: 10px;
+}
