@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./currentWeather.module.scss";

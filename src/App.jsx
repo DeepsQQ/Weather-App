@@ -1,4 +1,6 @@
 import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import scssVariables from "./scss/_variables.scss";
 
 import Header from "./components/Header";
