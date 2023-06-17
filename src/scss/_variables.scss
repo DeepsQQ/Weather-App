@@ -4,9 +4,16 @@ $dark-primary-color: #f2f2f2;
 $secondary-color: #eceef2;
 $dark-secondary-color: #d8dde6;
 
+$black-opacity: 0.6;
+$white-opacity: 0.8;
+
 :export {
   primaryColor: $primary-color;
   darkPrimaryColor: $dark-primary-color;
+
   secondaryColor: $secondary-color;
   darkSecondaryColor: $dark-secondary-color;
+
+  blackOpacity: $black-opacity;
+  whiteOpacity: $white-opacity;
 }

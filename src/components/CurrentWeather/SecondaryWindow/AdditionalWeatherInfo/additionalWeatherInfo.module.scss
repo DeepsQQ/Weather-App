@@ -1,3 +1,5 @@
+@import "/src/scss/";
+
 .root {
   margin-top: 10px;
   display: grid;
@@ -5,5 +7,5 @@
 }
 
 .title {
-  opacity: 0.8;
+  opacity: $white-opacity;
 }
