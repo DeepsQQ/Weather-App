@@ -19,9 +19,12 @@ const ForecastSkeleton = ({ count }) => {
 const Forecast = () => {
   const forecastData = useSelector((state) => state.weatherData.forecast);
 
-  const forecastDays = forecastData.map((dayData) => (
-    <DayForecast dayData={dayData} />
-  ));
+  let forecastDays;
+  if (forecastData) {
+    forecastDays = forecastData.map((dayData) => (
+      <DayForecast dayData={dayData} />
+    ));
+  }
 
   return (
     <div className={styles.root}>

@@ -5,7 +5,10 @@ import DayDescription from "./DayDescription";
 const DayForecast = ({ dayData }) => {
   return (
     <article className={styles.root}>
-      <DayDescription unixDate={dayData.date_epoch} weatherData={dayData.day} />
+      <DayDescription
+        unixTimestamp={dayData.date_epoch}
+        weatherData={dayData.day}
+      />
     </article>
   );
 };

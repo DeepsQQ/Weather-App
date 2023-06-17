@@ -1,0 +1,33 @@
+@import "/src/scss/";
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  padding-bottom: 5px;
+  border-bottom: 3px solid $secondary-color;
+}
+
+.date {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.day {
+  font-size: 3.5rem;
+  line-height: 80%;
+}
+
+.month {
+  margin-left: 5px;
+  opacity: 0.6;
+}
+
+.weather {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.title {
+  opacity: 0.6;
+}
