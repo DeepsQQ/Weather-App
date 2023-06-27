@@ -1,0 +1,6 @@
+@import "/src/scss";
+
+.root {
+  @extend %carouselButton;
+  right: 0;
+}

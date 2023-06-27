@@ -5,6 +5,8 @@ import "swiper/scss";
 import styles from "./hoursCarousel.module.scss";
 
 import Slide from "./Slide";
+import ButtonPrev from "./ButtonPrev";
+import ButtonNext from "./ButtonNext";
 
 const HoursCarousel = ({ hoursArray }) => {
   const slides = hoursArray.map((weather, index) => (
@@ -21,12 +23,15 @@ const HoursCarousel = ({ hoursArray }) => {
   return (
     <div className={styles.root}>
       <Swiper
+        className={styles.carousel}
         spaceBetween={10}
         slidesPerView={"auto"}
         freeMode={true}
         modules={[FreeMode]}
       >
+        <ButtonPrev slot="container-start" />
         {slides}
+        <ButtonNext slot="container-end" />
       </Swiper>
     </div>
   );
