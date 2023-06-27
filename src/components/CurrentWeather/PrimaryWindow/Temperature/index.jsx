@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import styles from "./temperature.module.scss";
 
-const icons = require.context("../../../../icons");
+const icons = require.context("/src/icons");
 
 const Temperature = () => {
   const { temp_c, temp_f, feelslike_c, feelslike_f, is_day, condition } =
