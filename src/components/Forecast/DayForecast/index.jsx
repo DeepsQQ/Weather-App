@@ -2,6 +2,7 @@ import styles from "./dayForecast.module.scss";
 
 import DayDescription from "./DayDescription";
 import HoursCarousel from "./HoursCarousel";
+import Astronomy from "./Astronomy";
 
 const DayForecast = ({ dayData }) => {
   return (
@@ -11,6 +12,7 @@ const DayForecast = ({ dayData }) => {
         weatherData={dayData.day}
       />
       <HoursCarousel hoursArray={dayData.hour} />
+      <Astronomy astroData={dayData.astro} />
     </article>
   );
 };

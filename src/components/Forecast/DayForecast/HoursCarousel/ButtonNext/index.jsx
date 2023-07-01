@@ -1,7 +1,7 @@
 import { useSwiper } from "swiper/react";
 import styles from "./buttonNext.module.scss";
 
-import { useDisabled } from "../../../../../hooks";
+import { useDisabled } from "../../../../../utils/hooks";
 
 const ButtonNext = () => {
   const swiper = useSwiper();

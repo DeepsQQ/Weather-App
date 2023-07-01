@@ -1,0 +1,74 @@
+@import "/src/scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+  padding-left: 20px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  border-left: 3px solid $secondary-color;
+}
+
+.progressBar {
+  padding: 0 21px;
+}
+
+.progressBarImage {
+  display: block;
+  width: 200px;
+}
+
+.description {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+}
+
+.sunriseIcon {
+  margin: 0 auto;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.sunriseTime {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.sunsetIcon {
+  margin: 0 auto;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.sunsetTime {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.daylightTitle {
+  margin: auto auto auto auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.daylightTime {
+  margin: 0 auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
