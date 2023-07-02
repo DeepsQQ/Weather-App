@@ -21,8 +21,8 @@ const Forecast = () => {
 
   let forecastDays;
   if (forecastData) {
-    forecastDays = forecastData.map((dayData) => (
-      <DayForecast dayData={dayData} />
+    forecastDays = forecastData.map((dayData, index) => (
+      <DayForecast key={index} dayData={dayData} />
     ));
   }
 
