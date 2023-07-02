@@ -6,6 +6,7 @@ import scssVariables from "./scss/_variables.scss";
 import Header from "./components/Header";
 import CurrentWeather from "./components/CurrentWeather";
 import Forecast from "./components/Forecast";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Header />
         <CurrentWeather />
         <Forecast />
+        <Footer />
       </SkeletonTheme>
     </>
   );

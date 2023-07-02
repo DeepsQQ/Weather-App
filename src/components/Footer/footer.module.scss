@@ -1,0 +1,14 @@
+@import "/src/scss/";
+
+.root {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  background-color: $secondary-color;
+  color: rgba(black, 0.35);
+  font-size: 0.875rem;
+}
+
+.link {
+  color: inherit;
+}
