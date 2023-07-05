@@ -2,3 +2,9 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
+
+#root {
+  display: grid;
+  grid-template-rows: repeat(4, auto) 1fr;
+  height: 100vh;
+}
