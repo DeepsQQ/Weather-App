@@ -11,8 +11,9 @@
   .container {
     @extend %container;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    column-gap: 30px;
+    row-gap: 15px;
   }
 }
 
