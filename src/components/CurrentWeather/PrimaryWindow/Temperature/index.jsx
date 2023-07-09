@@ -14,7 +14,7 @@ const Temperature = () => {
   const feelsLike = degreesMode === "C" ? feelslike_c : feelslike_f;
 
   return (
-    <div>
+    <div className={styles.root}>
       <div className={styles.temperature}>
         <div className={styles.degrees}>{Math.trunc(degrees)}</div>
         <div className={styles.degreesMode}>{`°${degreesMode}`}</div>
@@ -24,10 +24,12 @@ const Temperature = () => {
           alt={condition.text}
         />
       </div>
-      <div className={styles.feelsLike}>{`Feels like ${Math.trunc(
-        feelsLike
-      )}°`}</div>
-      <div className={styles.weatherText}>{condition.text}</div>
+      <div>
+        <div className={styles.feelsLike}>{`Feels like ${Math.trunc(
+          feelsLike
+        )}°`}</div>
+        <div className={styles.weatherText}>{condition.text}</div>
+      </div>
     </div>
   );
 };
