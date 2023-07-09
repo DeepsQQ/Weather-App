@@ -3,6 +3,7 @@
 .root {
   display: grid;
   grid-gap: 5px;
+  align-content: start;
 }
 
 .listItem {

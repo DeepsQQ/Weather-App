@@ -24,6 +24,8 @@
 
 .popupCity {
   font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .popupRegion {

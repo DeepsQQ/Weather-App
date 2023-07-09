@@ -2,14 +2,14 @@
 
 .root {
   display: grid;
-  grid-template-columns: 1fr max-content;
+  grid-template-columns: auto 1fr;
   padding-bottom: 5px;
   border-bottom: 3px solid $secondary-color;
 }
 
 .date {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: repeat(2, auto);
 }
 
 .day {
@@ -23,9 +23,16 @@
 }
 
 .weather {
-  display: flex;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: end;
+  column-gap: 15px;
+  row-gap: 5px;
   align-items: center;
+
+  @media (max-width: 850px) {
+    grid-template-columns: auto;
+  }
 }
 
 .title {

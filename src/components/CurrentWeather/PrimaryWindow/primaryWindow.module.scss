@@ -7,6 +7,6 @@
 .weatherInfo {
   margin-top: 15px;
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: 1fr auto;
   justify-content: space-between;
 }

@@ -9,6 +9,10 @@
 .carousel {
   width: calc(100% - (2rem * 2) - 5px);
   position: static;
+
+  @media (max-width: 850px) {
+    width: 100%;
+  }
 }
 
 .slide {

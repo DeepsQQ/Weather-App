@@ -31,7 +31,7 @@ const TimeAndGeolocation = () => {
         </svg>
         <time dateTime={dateTime}>{time}</time>
       </div>
-      <div>{`${name}, ${country}`}</div>
+      <div className={styles.location}>{`${name}, ${country}`}</div>
     </div>
   );
 };

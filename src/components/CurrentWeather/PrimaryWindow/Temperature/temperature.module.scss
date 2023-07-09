@@ -17,6 +17,10 @@
   width: 4rem;
   height: 4rem;
   margin-left: 5px;
+
+  @media (max-width: 850px) {
+    display: none;
+  }
 }
 
 .feelsLike {

@@ -35,4 +35,8 @@
       opacity: $black-opacity;
     }
   }
+
+  @media (max-width: 850px) {
+    display: none;
+  }
 }
