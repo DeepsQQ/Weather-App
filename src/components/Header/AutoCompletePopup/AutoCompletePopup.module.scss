@@ -2,9 +2,10 @@
 
 .popup {
   position: absolute;
-  left: 0;
+  right: 0;
   top: calc(100% + 5px);
   width: 100%;
+  min-width: 230px;
   box-sizing: border-box;
   background-color: $secondary-color;
   border-radius: 5px;
