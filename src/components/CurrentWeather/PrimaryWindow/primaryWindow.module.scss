@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   justify-content: space-between;
+  row-gap: 10px;
 
   @media (max-width: 430px) {
     grid-template-columns: 1fr;

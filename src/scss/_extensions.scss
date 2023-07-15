@@ -9,6 +9,10 @@
   @media (max-width: 750px) {
     max-width: 550px;
   }
+
+  @media (max-width: 550px) {
+    max-width: none;
+  }
 }
 
 %currentWeatherWindow {

@@ -10,19 +10,19 @@ const AdditionalWeatherInfo = () => {
 
   return (
     <ul className={styles.root}>
-      <li>
+      <li className={styles.listItem}>
         <span className={styles.title}>UV-Index:&nbsp;</span>
         <span>{uv}</span>
       </li>
-      <li>
+      <li className={styles.listItem}>
         <span className={styles.title}>Visibility:&nbsp;</span>
         <span>{vis_km + " km"}</span>
       </li>
-      <li>
+      <li className={styles.listItem}>
         <span className={styles.title}>Moon Illumination:&nbsp;</span>
         <span>{moon_illumination + "%"}</span>
       </li>
-      <li>
+      <li className={styles.listItem}>
         <span className={styles.title}>Moon Phase:&nbsp;</span>
         <span>{moon_phase}</span>
       </li>

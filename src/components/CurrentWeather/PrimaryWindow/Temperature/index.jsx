@@ -24,12 +24,10 @@ const Temperature = () => {
           alt={condition.text}
         />
       </div>
-      <div>
-        <div className={styles.feelsLike}>{`Feels like ${Math.trunc(
-          feelsLike
-        )}°`}</div>
-        <div className={styles.weatherText}>{condition.text}</div>
-      </div>
+      <div className={styles.feelsLike}>{`Feels like ${Math.trunc(
+        feelsLike
+      )}°`}</div>
+      <div className={styles.weatherText}>{condition.text}</div>
     </div>
   );
 };
