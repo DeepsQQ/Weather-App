@@ -1,8 +1,7 @@
 # Weather App
 
-<p style="display: flex; justify-content: center; gap: 5px; font-size: 2.5rem; font-weight:bold;">
-  <img src="https://svgshare.com/i/vN6.svg" alt="weather">
-  Weather
+<p align="center">
+  <img src="https://i.imgur.com/5oj6p4l.png" alt="weather">
 </p>
 
 ## Description
@@ -11,16 +10,16 @@ A simple application showing the current weather in different cities, as well as
 
 ## Technologies used
 
-<ul style="padding-left: 2rem;">
-  <li style="display: flex; gap: 5px;">
+<ul>
+  <li>
     <img src="https://svgshare.com/i/vNP.svg" alt="react">
     React
   </li>
-  <li style="display: flex; gap: 5px;">
+  <li>
     <img src="https://svgshare.com/i/vM_.svg" alt="redux">
     Redux
   </li>
-  <li style="display: flex; gap: 5px;">
+  <li>
     <img src="https://svgshare.com/i/vKz.svg" alt="sass">
     Sass
   </li>
