@@ -17,15 +17,6 @@ const LocationSearch = ({ setActive, isMobile }) => {
   const inputRef = useRef();
   const rootRef = useRef();
 
-  const onMouseDownOutsidePopup = (event) => {
-    const isRootIncludes = event.composedPath().includes(rootRef.current);
-
-    if (!isRootIncludes) {
-      setPopupVisible(false);
-      setActive(false);
-    }
-  };
-
   useEffect(() => {
     if (isMobile) {
       inputRef.current.focus();
@@ -55,6 +46,15 @@ const LocationSearch = ({ setActive, isMobile }) => {
     }, 300),
     []
   );
+
+  const onMouseDownOutsidePopup = (event) => {
+    const isRootIncludes = event.composedPath().includes(rootRef.current);
+
+    if (!isRootIncludes) {
+      setPopupVisible(false);
+      setActive(false);
+    }
+  };
 
   const onChangeInput = (e) => {
     setInputValue(e.target.value);
