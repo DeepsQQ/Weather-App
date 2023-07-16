@@ -1,41 +1,51 @@
-import React from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import debounce from "lodash.debounce";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./locationSearch.module.scss";
 import { fetchResults, setResults } from "../../../store/autoCompleteSlice";
 import AutoCompletePopup from "../AutoCompletePopup";
 
-const LocationSearch = () => {
+const LocationSearch = ({ setActive, isMobile }) => {
   const dispatch = useDispatch();
 
-  const [inputValue, setInputValue] = React.useState("");
-  const [popupVisible, setPopupVisible] = React.useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [popupVisible, setPopupVisible] = useState(false);
 
   const searchResults = useSelector((state) => state.autoComplete.results);
 
-  const inputRef = React.useRef();
-  const rootRef = React.useRef();
+  const inputRef = useRef();
+  const rootRef = useRef();
 
   const onMouseDownOutsidePopup = (event) => {
     const isRootIncludes = event.composedPath().includes(rootRef.current);
 
     if (!isRootIncludes) {
       setPopupVisible(false);
+      setActive(false);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (isMobile) {
+      inputRef.current.focus();
+    }
+  }, []);
+
+  useEffect(() => {
     if (popupVisible) {
       document.addEventListener("mousedown", onMouseDownOutsidePopup);
     } else {
       document.removeEventListener("mousedown", onMouseDownOutsidePopup);
     }
+
+    return () => {
+      document.removeEventListener("mousedown", onMouseDownOutsidePopup);
+    };
   }, [popupVisible]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const searchDebounce = React.useCallback(
+  const searchDebounce = useCallback(
     debounce(async (value) => {
       if (!/\d/.test(value) && value.trim() && value.length >= 3) {
         dispatch(fetchResults(value));
@@ -121,6 +131,7 @@ const LocationSearch = () => {
         <AutoCompletePopup
           searchResults={searchResults}
           setPopupVisible={setPopupVisible}
+          setInputActive={setActive}
         />
       )}
     </div>

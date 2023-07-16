@@ -1,15 +1,32 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./header.module.scss";
 
 import DegreesSwitch from "./DegreesSwitch";
 import LocationSearch from "./LocationSearch";
+import SearchButton from "./SearchButton";
 
 const Header = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  const [isInputActive, setInputActive] = useState(false);
+
+  const onResize = () => {
+    if (window.innerWidth <= 500) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.logo}>
+        <div onClick={() => setIsMobile(true)} className={styles.logo}>
           <svg
             className={styles.logoImage}
             xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +54,16 @@ const Header = () => {
           </svg>
           <span className={styles.title}>Weather</span>
         </div>
-        <DegreesSwitch />
-        <LocationSearch />
+        {!isInputActive && <DegreesSwitch />}
+        {isMobile && !isInputActive ? (
+          <SearchButton setActive={setInputActive} />
+        ) : (
+          <LocationSearch
+            isActive={isInputActive}
+            setActive={setInputActive}
+            isMobile={isMobile}
+          />
+        )}
       </div>
     </header>
   );

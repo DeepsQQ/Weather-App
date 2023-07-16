@@ -11,6 +11,14 @@
   border-radius: 5px;
   max-width: 300px;
   width: 100%;
+
+  @media (max-width: 750px) {
+    max-width: 200px;
+  }
+
+  @media (max-width: 500px) {
+    max-width: none;
+  }
 }
 
 .input {
